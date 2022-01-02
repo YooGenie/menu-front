@@ -1,6 +1,10 @@
 import React, {Component} from "react";
 import { Layout } from 'antd';
-const { Content} = Layout;
+import Footer from "./Footer";
+import Header from "./Header";
+import Main from "../../page/main";
+import dd from "./AppLayout.css"
+import styles from "./AppLayout.css";
 
 export default class AppLayout extends Component {
     state = {
@@ -10,14 +14,19 @@ export default class AppLayout extends Component {
     render() {
         const {location} = this.props;
         let rootPath = location.pathname.split("/")[1];
-        if (rootPath == "") {
+        if (rootPath === "") {
             rootPath = "/";
         }
         return (
-            <Layout style={{minHeight: '100vh'}}>
+            <Layout
+                style={{
+                    minHeight: "100%"
+                }}
+            >
                 <Layout>
-                    <Content style={{minHeight: 280}}>
-                    </Content>
+                    <Header/>
+                    <Main/>
+                    <Footer/>
                 </Layout>
             </Layout>
         );
