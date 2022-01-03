@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {HashRouter, Route, Switch} from "react-router-dom";
-import './App.less';
 import Menu from "./page/menu/MenuList";
 import Study from "./page/study/studyPage";
 import AppLayout from "./components/layout/AppLayout";
