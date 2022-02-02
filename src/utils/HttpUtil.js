@@ -16,4 +16,17 @@ export class HttpUtil {
         }
     };
 
+    static handleHttpStatusError = (error) => {
+        if (error.name === "HttpStatusError") {
+            if (error.status === 401) {
+                alert("사용 권한이 없습니다. 다시 로그인해 주세요.");
+                document.location.href = "";
+            } else {
+                throw error;
+            }
+        } else {
+            throw error;
+        }
+    };
+
 };
