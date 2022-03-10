@@ -13,7 +13,14 @@ const Main = () => {
             <Button onClick={() => {
                 history.push("/study")
             }}>공부하기</Button>
+            <Button onClick={() => {
+                history.push("/state")
+            }}>state 공부</Button>
+            <Button onClick={() => {
+                history.push("/componentInComponent")
+            }}>Component</Button>
         </div>
+
   </>
     );
 }
