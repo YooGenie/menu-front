@@ -3,6 +3,8 @@ import {BrowserRouter, HashRouter, Route, Switch} from "react-router-dom";
 import Menu from "./page/menu/MenuList";
 import Study from "./page/study/studyPage";
 import AppLayout from "./components/layout/AppLayout";
+import StateStudy from "./page/statePage";
+import ComponentInComponent from "./page/ComponentInComponent";
 
 class App extends Component {
     render() {
@@ -16,6 +18,12 @@ class App extends Component {
                 </Switch>
                 <Switch>
                     <Route path={'/study'} component={Study}/>
+                </Switch>
+                <Switch>
+                    <Route path={'/state'} component={StateStudy}/>
+                </Switch>
+                <Switch>
+                    <Route path={'/componentInComponent'} component={ComponentInComponent}/>
                 </Switch>
             </BrowserRouter>
         );
