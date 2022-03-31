@@ -53,10 +53,10 @@ const Study = () => {
                 setData(bold.data)
                 console.log("bold.data: ", bold.data)
                 message.success("다운되었습니다")
-                const fileURL = URL.createObjectURL(bold.data);
+                // const fileURL = URL.createObjectURL(bold.data);
                 const link = document.createElement("a");
                link.click();
-                link.document.write('<iframe src="' + fileURL + '"  ></iframe>')
+                // link.document.write('<iframe src="' + fileURL + '"  ></iframe>')
 
             })
             .catch(() => {
