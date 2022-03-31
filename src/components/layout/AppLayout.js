@@ -3,7 +3,6 @@ import { Layout } from 'antd';
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "../../page/main";
-import dd from "./AppLayout.css"
 import styles from "./AppLayout.css";
 
 export default class AppLayout extends Component {
@@ -19,9 +18,8 @@ export default class AppLayout extends Component {
         }
         return (
             <Layout
-                style={{
-                    minHeight: "100%"
-                }}
+               className={styles.layoutMinHeight}
+
             >
                 <Layout>
                     <Header/>

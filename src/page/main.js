@@ -19,6 +19,10 @@ const Main = () => {
             <Button onClick={() => {
                 history.push("/componentInComponent")
             }}>Component</Button>
+            <Button onClick={() => {
+                history.push("/useMemo")
+                console.log("버튼 클릭")
+            }}>useMemo</Button>
         </div>
 
   </>

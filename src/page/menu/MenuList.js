@@ -10,7 +10,7 @@ const PAGE_SIZE = 10;
 const FIRST_PAGE = 1;
 
 // 클래스 느낌
-const MenuList = (props) => {
+const MenuList = () => {
     const [loading, setLoading] = useState(false);
     const [registerOpen, setRegisterOpen] = useState(false);
     const [deleteOpen, setDeleteOpen] = useState(null);
@@ -21,9 +21,7 @@ const MenuList = (props) => {
     const NumberFormatter = new Intl.NumberFormat('ko-KR', {maximumSignificantDigits: 3});
 
     // 로딩시만 구동됩니다. 왜? 두번재 변수가 빈 배열이니까.
-    useEffect(() => {
-        load(FIRST_PAGE);
-    }, []);
+    useEffect(()=>load(FIRST_PAGE),[]);
 
     const load = (page) => {
         if (loading) {

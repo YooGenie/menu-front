@@ -1,4 +1,3 @@
-import React from 'react';
 import {Config} from "../../utils/Config";
 import {HttpUtil} from "../../utils/HttpUtil";
 

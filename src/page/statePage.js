@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {Input} from "antd";
+import React, { useState } from "react";
+
 
 
 // const BoilingVerdict = (props) => {
@@ -37,7 +37,7 @@ const scaleNames = {
 
 const TemperatureInput = (props) => {
     const [temperature, setTemperature] = useState("")
-    const [scale, setScale] = useState(props.scale)
+    const [scale] = useState(props.scale)
 
     const handleChange = (e) => {
         setTemperature(e.target.value)
