@@ -6,6 +6,7 @@ import AppLayout from "./components/layout/AppLayout";
 import StateStudy from "./page/statePage";
 import ComponentInComponent from "./page/ComponentInComponent";
 import StudyUseMemoMain from "./page/studyUseMemoMain";
+import StudyUseCallback from "./page/studyUseCallback";
 
 class App extends Component {
     render() {
@@ -29,6 +30,11 @@ class App extends Component {
                 <Switch>
                     <Route path={'/useMemo'} component={StudyUseMemoMain}/>
                 </Switch>
+                <Switch>
+                    <Route path={'/useCallback'} component={StudyUseCallback}/>
+                </Switch>
+
+
             </BrowserRouter>
         );
     }
