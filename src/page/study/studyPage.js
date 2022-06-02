@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {createClick, getPdf} from "./StudyService";
+import {createClick, getPdf, kakaoLogin} from "./StudyService";
 import {message} from "antd";
 import { saveAs } from "file-saver";
 
@@ -19,6 +19,16 @@ const Study = () => {
                 setBtn(false)
             })
     };
+    const clickKakaoLogin = () => {
+        kakaoLogin()
+            .then(() => {
+                message.success("성공했습니다.")
+            })
+            .catch(() => {
+                message.error("실패했습니다")
+            })
+    };
+
     // const onClickPdf = (id) => {
     //     getPdf(id)
     //         .then(responseData => {
@@ -65,6 +75,7 @@ const Study = () => {
     }
 
     return (
+        <>
         <div>
             공부하는 페이지
             <button onClick={() => {
@@ -85,6 +96,14 @@ const Study = () => {
             <iframe src={data}/>
 
           </div>
+    <div>
+        <button onClick={() => {
+            clickKakaoLogin()
+            console.log("클릭")
+        }
+        } disabled={btn}>카카오로그인</button>
+    </div>
+    </>
     );
 }
 

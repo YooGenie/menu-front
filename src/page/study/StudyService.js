@@ -25,4 +25,20 @@ export const getPdf = (id) => {
         headers: {  'Content-Type': 'application/pdf'},
         responseType: "blob",
     })
+
+
+};
+
+
+
+export const kakaoLogin = () => {
+    return fetch(`${Config.API_SERVER()}/auth/kakao`, {
+        method: "GET",
+        headers: HttpUtil.getHeader(),
+    })
+        .then(HttpUtil.handleHttpStatus)
+        .catch(HttpUtil.handleHttpStatusError)
+        .then(res => {
+            return res.status
+        });
 };
