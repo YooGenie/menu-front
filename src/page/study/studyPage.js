@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import {createClick, getPdf, kakaoLogin} from "./StudyService";
-import {message} from "antd";
+import {Input, message} from "antd";
 import { saveAs } from "file-saver";
+// import resizeImages from "./resize"
+import imageCompression from 'browser-image-compression';
 
 const Study = () => {
     const [btn, setBtn] = useState(false);
@@ -74,6 +76,36 @@ const Study = () => {
             })
     }
 
+    const [file, setFile] = useState(null);
+    //const [fileUrl, setFileUrl] = useState("");
+    const handleFileOnChange = async (e) => {
+        let file = e.target.files[0];	// 입력받은 file객체
+
+        console.log("file : ", file)
+
+        // 이미지 resize 옵션 설정 (최대 width을 100px로 지정)
+        const options = {
+            maxWidth: 1280
+        }
+
+        try {
+            const compressedFile = await imageCompression(file, options);
+            setFile(compressedFile);
+            console.log("compressedFile : ",compressedFile)
+
+            //AWS 파일 올리는 API 해서 compressedFile 보내면 URL 주소를 받을 수 있다.
+            //compressedFile 리사이즈 한 파일 정보
+
+            // resize된 이미지의 url을 받아 fileUrl에 저장
+            // const promise = imageCompression.getDataUrlFromFile(compressedFile);
+            // promise.then(result => {
+            //     setFileUrl(result);
+            // })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <>
         <div>
@@ -103,6 +135,18 @@ const Study = () => {
         }
         } disabled={btn}>카카오로그인</button>
     </div>
+            <div>
+            <Input       type="file"
+                         accept="image/*"
+                         name="file"
+                         onChange={handleFileOnChange}
+
+            />
+
+                {/*<input type='file' accept='image/jpg,image/png,image/jpeg,image/gif'*/}
+                {/*       id='profile_img_upload' onChange={handleFileOnChange}*/}
+                {/*/>*/}
+            </div>
     </>
     );
 }
